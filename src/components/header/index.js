@@ -23,7 +23,7 @@ class Headers extends React.Component {
          
          {this.props.data.categories.map((category ,index) => {
            
-           return  <a key={index} href={"/category/" + category.name} >{ category.name}</a>
+           return  <a className="categoriesHeader" key={index} href={"/category/" + category.name} >{ category.name}</a>
          })
          }
          
