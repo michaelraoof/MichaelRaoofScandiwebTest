@@ -1,4 +1,4 @@
-import Products from "../products/index";
+import Home from "../home/index";
 
 import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import React from 'react';
@@ -12,7 +12,7 @@ class Main extends React.Component {
  
                       <Routes>
 
-              <Route exact path='/' element={< Products />}></Route>
+              <Route exact path='/' element={< Home />}></Route>
         
            </Routes>
 
