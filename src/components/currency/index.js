@@ -20,30 +20,41 @@ const Get_Currencies = gql`
 `;
 
 class Currency extends React.Component {
-  constructor() {
-    super();
+  componentDidUpdate() {
+//to set the initial value after closing the tap. we set currency inside local storage and then checking for it
+    if (localStorage.getItem("currencyIndex") != null // to see if i decided the currency before then closed the tap
+      && !this.props.data.loading && //to see if apollo finished from getting the data
+      this.props.currencyIndexArray === 0) { // to set the 
+ this.props.setcurrency({
+          currencyIndexArray: localStorage.getItem("currencyIndex"),
+          label: this.props.data.currencies[ localStorage.getItem("currencyIndex")].label,
+        });
+    }
+    // in the first time ever. we set state to (USD)
+    else if (localStorage.getItem("currencyIndex") === null//to check if i opened the app ever
+      && !this.props.data.loading &&
+      this.props.currencyIndexArray === 0)
+    {
+      this.props.setcurrency({
+          currencyIndexArray: 0,
+          label: this.props.data.currencies[0].label,
+        });
+      }
+   
+ }
 
-    this.state = { currencyIndexArray: 0,symbol:"",label:""};
-   this.setCurrency= this.setCurrency.bind(this);
-  }
-
-  setCurrency(index) {
-    this.setState({ currencyIndexArray: index });
-    
-   }
- 
   getCurrencies() {
       if (!this.props.data.loading) {
+     
        
-        
  return  <div className="dropdown">
-    <button className="dropbtn">{this.props.data.currencies[this.state.currencyIndexArray].symbol} <img src={arrow} alt=""/>
+    <button className="dropbtn">{this.props.data.currencies[this.props.currencyIndexArray].symbol} <img src={arrow} alt=""/>
       <i className="fa fa-caret-down"></i>
     </button>
    <div className="dropdown-content">
      {
        this.props.data.currencies.map((currency,index) => {
-         return  <a key={index} href="#0" onClick={()=>this.setState({ currencyIndexArray: index,symbol:currency.symbol,label:currency.label })}>{currency.symbol +" " + currency.label}</a>
+         return  <a key={index} href="#0" onClick={()=>this.props.setcurrency({currencyIndexArray:index,label:currency.label})}>{currency.symbol +" " + currency.label}</a>
        })
      }
      
@@ -63,7 +74,7 @@ class Currency extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currencyindex: state.currency.currencyindex,
+  currencyIndexArray: state.currency.currencyIndexArray,
 
       label: state.currency.label,
 });
@@ -72,4 +83,4 @@ const mapDispatchToProps = { setcurrency };
 const WithGraphql = graphql(Get_Currencies)(Currency);
 export default connect(mapStateToProps, mapDispatchToProps)(WithGraphql);
 
-//export default graphql(Get_Currencies)(Currency);
+

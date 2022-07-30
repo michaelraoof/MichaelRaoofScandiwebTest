@@ -1,9 +1,12 @@
 import './products.css';
+import { connect } from "react-redux";
 import { gql } from '@apollo/client';
 import { graphql } from '@apollo/client/react/hoc';
 import React from 'react';
  const Get_Products = gql`
-query{category(input:{title:"all"}){
+query  category($categorytitle:String!){
+
+  category(input:{title: $categorytitle}){
   
   products{
     name
@@ -20,14 +23,16 @@ query{category(input:{title:"all"}){
     }
   }
 }
-
 }
 `;
 
+
 class Products extends React.Component {
+
   showProducts() {
+ 
     if (!this.props.data.loading) {
-       
+    
        return  <div className="grid-container">
          
          {this.props.data.category.products.map((product ,index) => {
@@ -46,7 +51,10 @@ class Products extends React.Component {
              
              {<div className='txt'>
                {
-             product.prices[0].currency.symbol+  product.prices[0].amount }
+                product.prices[this.props.currencyIndexArray].currency.symbol + product.prices[this.props.currencyIndexArray].amount
+          
+               
+               }
                </div>
            }
            
@@ -73,5 +81,18 @@ class Products extends React.Component {
   }
 }
 
-export default graphql(Get_Products)(Products);
 
+
+
+const mapStateToProps = (state) => ({
+  currencyIndexArray: state.currency.currencyIndexArray,
+  label: state.currency.label,
+  
+      type:state.headerType.type
+});
+
+
+const WithGraphql = graphql(Get_Products, {
+  options: (props) => ({ variables: { categorytitle: props.type} })
+})(Products);
+export default connect(mapStateToProps)(WithGraphql);

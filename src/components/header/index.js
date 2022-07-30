@@ -6,6 +6,8 @@ import { graphql } from '@apollo/client/react/hoc';
 import { Query } from '@apollo/client/react/components'
 import logo from "./Capture.PNG";
 import Currency from '../currency/index';
+import { connect } from "react-redux";
+import { setCategoryType } from "../../redux/categorytypeSlice";
   const Get_categories_names = gql`
  query{categories{
   name
@@ -16,6 +18,15 @@ import Currency from '../currency/index';
 
 class Headers extends React.Component {
   
+  componentDidUpdate() {
+    if ( !this.props.data.loading &&
+      this.props.type === "") {
+       this.props.setCategoryType({
+          type: this.props.data.categories[0].name,//set initial state to "all"
+          
+        });
+      }
+  }
    showheaders() {
      if (!this.props.data.loading) {
        
@@ -23,7 +34,14 @@ class Headers extends React.Component {
          
          {this.props.data.categories.map((category ,index) => {
            
-           return  <a className="categoriesHeader" key={index} href={"#0"} >{ category.name}</a>
+           return <a  className="categoriesHeader" key={index} onClick={() => {   
+           
+             
+             this.props.setCategoryType({
+              
+               type:category.name
+        })
+           }} href={"#0"}>{ category.name}</a>
          })
          }
          
@@ -47,4 +65,16 @@ class Headers extends React.Component {
   }
 }
 
-export default graphql(Get_categories_names)(Headers);
+
+
+
+
+
+const mapStateToProps = (state) => ({
+ 
+type:state.headerType.type,
+});
+
+const mapDispatchToProps = { setCategoryType };
+const WithGraphql = graphql(Get_categories_names)(Headers);
+export default connect(mapStateToProps, mapDispatchToProps)(WithGraphql);

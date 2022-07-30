@@ -3,14 +3,16 @@ import { createSlice } from '@reduxjs/toolkit'
 export const currencySlice = createSlice({
   name: 'currency',
   initialState: {
-   currencyIndexArray: 0,label:""
+    currencyIndexArray: 0,
+    label: ""
   },
   reducers: {
 
     setcurrency: (state, action) => {
-      state.currencyindex = action.payload;
+      state.currencyIndexArray = action.payload.currencyIndexArray;
   
-      state.label = action.payload;
+      state.label = action.payload.label;
+      localStorage.setItem("currencyIndex", state.currencyIndexArray);//to save the vaklue of currency if i closed tap or refresh it
     },
   },
 })
