@@ -4,7 +4,7 @@ export const categorytypeSlice = createSlice({
   name: 'headerType',
   initialState: {
 
-    type:""
+    type:"" //all ,tech , clothes
   },
   reducers: {
 

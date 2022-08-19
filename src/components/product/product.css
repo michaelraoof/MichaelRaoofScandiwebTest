@@ -1,0 +1,44 @@
+.mainproductdescription{
+
+    display: grid;
+        align-content: center;
+            grid-template-columns: 4em auto auto;
+          
+            font-size: 80%;
+            padding-top: 40px;
+            padding-left: 10.5vw;
+            padding-right: 10vw;
+           
+     gap: 10px;
+}
+.productsmallimgs{
+  padding: 0px;
+  margin: 0px;
+  max-width: 5vw;
+}
+.productsmallimgs>img{
+
+ cursor: pointer;
+  margin: 0px;
+  padding-bottom: 10px;
+ padding: 0px;
+ margin: 0px;
+}
+.productbigimg>img{
+  
+margin: 0px;
+  padding: 0px;
+
+ width: 40em;
+  height: 40em;
+  max-width: 35vw;
+max-height: 70vh;
+}
+.productdescription>button{
+  color: white;
+  background-color: #5ECE7B;
+  padding: 0px 29px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border: none;
+}

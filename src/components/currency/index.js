@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import { setcurrency } from "../../redux/currencySlice.js";
 import { gql } from '@apollo/client';
 import { graphql } from '@apollo/client/react/hoc';
-import arrow from "./downArrow.png";
+import arrow from "./downArrow.svg";
 const Get_Currencies = gql`
  query{
   currencies{
@@ -48,10 +48,10 @@ class Currency extends React.Component {
      
        
  return  <div className="dropdown">
-    <button className="dropbtn">{this.props.data.currencies[this.props.currencyIndexArray].symbol} <img src={arrow} alt=""/>
-      <i className="fa fa-caret-down"></i>
+   <button className="dropbtn">{this.props.data.currencies[this.props.currencyIndexArray].symbol} <img src={arrow} alt="" style={this.props.iscartopened ? {transform:" rotate(0deg)"}:{}}/>
+
     </button>
-   <div className="dropdown-content">
+   <div className="dropdown-content" style={this.props.iscartopened ? {display:"none"}:{}}>
      {
        this.props.data.currencies.map((currency,index) => {
          return  <a key={index} href="#0" onClick={()=>this.props.setcurrency({currencyIndexArray:index,label:currency.label})}>{currency.symbol +" " + currency.label}</a>
@@ -75,7 +75,7 @@ class Currency extends React.Component {
 
 const mapStateToProps = (state) => ({
   currencyIndexArray: state.currency.currencyIndexArray,
-
+iscartopened:state.cart.opened,
       label: state.currency.label,
 });
 

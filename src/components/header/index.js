@@ -3,11 +3,15 @@ import './header.css';
 import React from 'react';
 import { gql } from '@apollo/client';
 import { graphql } from '@apollo/client/react/hoc';
-import { Query } from '@apollo/client/react/components'
-import logo from "./Capture.PNG";
+//import { Query } from '@apollo/client/react/components'
+import PopupBag from "../popupBag/index";
+import logo from "./Brand icon.svg";
 import Currency from '../currency/index';
 import { connect } from "react-redux";
 import { setCategoryType } from "../../redux/categorytypeSlice";
+
+import { Link }  from "react-router-dom";
+
   const Get_categories_names = gql`
  query{categories{
   name
@@ -34,14 +38,17 @@ class Headers extends React.Component {
          
          {this.props.data.categories.map((category ,index) => {
            
-           return <a  className="categoriesHeader" key={index} onClick={() => {   
-           
-             
+           return <Link to={"/"} className="categoriesHeader" key={index} style={this.props.type === category.name ? { color: "#5ECE7B", backgroundColor: 'transparent', borderBottom: "1px solid rgb(48, 241, 48)" } : {}}
+             onClick={() => {   
+           if(this.props.isproductlistclosed)
+           {//view product list if it is not open
+             this.props.switchToProductlist();
+        }
              this.props.setCategoryType({
               
                type:category.name
         })
-           }} href={"#0"}>{ category.name}</a>
+           }} >{ category.name}</Link>
          })
          }
          
@@ -53,14 +60,25 @@ class Headers extends React.Component {
 
   render() {
     return (
-      <div className="header">
+      <div className='mainheader'>
+      <div className="headerlogos">
      
         <div >{ this.showheaders()}</div>
           
     <img src={logo} alt="home" width="30px" heigth="30px"/>
-        <Currency></Currency>
+      <div className='popupslogos'>
+            <Currency></Currency>
+      
+             <PopupBag  ></PopupBag>        
+         
+        </div>
+      
+  
+        </div>
+       
+     
         
-      </div>
+        </div>
     );
   }
 }
@@ -72,7 +90,8 @@ class Headers extends React.Component {
 
 const mapStateToProps = (state) => ({
  
-type:state.headerType.type,
+  type: state.headerType.type,
+  
 });
 
 const mapDispatchToProps = { setCategoryType };

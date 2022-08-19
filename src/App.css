@@ -1,6 +1,13 @@
 .App{
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 20px;
-font-family: "Raleway";
+padding-left: 0 !important;
+    padding-top:   3vh;
+font-family: "Raleway" , sans-serif;
+font-size: 22px;
+font-weight:400;
+
+
+
+}
+body{
+    margin: 0;
 }
