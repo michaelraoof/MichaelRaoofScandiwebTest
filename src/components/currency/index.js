@@ -20,6 +20,25 @@ const Get_Currencies = gql`
 `;
 
 class Currency extends React.Component {
+   constructor(props) {
+    super(props);
+     this.state = { opened: false };
+    this.wrapperRef = React.createRef();
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+   componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
+handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)&&this.state.opened) {
+     // alert("You clicked outside of me!");
+      this.setState({ opened: !this.state.opened });
+    }
+  }
   componentDidUpdate() {
 //to set the initial value after closing the tap. we set currency inside local storage and then checking for it
     if (localStorage.getItem("currencyIndex") != null // to see if i decided the currency before then closed the tap
@@ -47,14 +66,18 @@ class Currency extends React.Component {
       if (!this.props.data.loading) {
      
        
- return  <div className="dropdown">
-   <button className="dropbtn">{this.props.data.currencies[this.props.currencyIndexArray].symbol} <img src={arrow} alt="" style={this.props.iscartopened ? {transform:" rotate(0deg)"}:{}}/>
+ return  <div className="dropdown" ref={this.wrapperRef}>
+   <button onClick={()=>{this.setState({opened:!this.state.opened})}} className="dropbtn">{this.props.data.currencies[this.props.currencyIndexArray].symbol} <img src={arrow} alt="" style={this.props.iscartopened ? {transform:" rotate(0deg)"}:{transform:this.state.opened?"rotate(180deg)":"rotate(0deg)"}}/>
 
     </button>
-   <div className="dropdown-content" style={this.props.iscartopened ? {display:"none"}:{}}>
+   <div className="dropdown-content" style={this.props.iscartopened ? {display:"none"}:{display:this.state.opened?"block":""}}>
      {
        this.props.data.currencies.map((currency,index) => {
-         return  <a key={index} href="#0" onClick={()=>this.props.setcurrency({currencyIndexArray:index,label:currency.label})}>{currency.symbol +" " + currency.label}</a>
+         return <a key={index} href="# " onClick={() => {
+          this.setState({opened:!this.state.opened})
+           this.props.setcurrency({ currencyIndexArray: index, label: currency.label })
+         }
+}>{currency.symbol +" " + currency.label}</a>
        })
      }
      

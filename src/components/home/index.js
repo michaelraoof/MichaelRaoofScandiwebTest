@@ -23,7 +23,7 @@ class Home extends React.Component {
         <BrowserRouter>
             <Headers ></Headers>
     <Routes>
-      <Route path="/" element={  < div style={this.props.ispopupCartopened ? {height:"calc(100% + 100vh)", opacity: "0.88", backgroundColor: "rgba(0, 0, 0, 0.2)" } : {}}>
+      <Route path="/" element={  < div style={this.props.ispopupCartopened ? {minHeight:"100vh", opacity: "0.88", backgroundColor: "rgba(0, 0, 0, 0.2)" } : {}}>
         <div className="productsheader">Category Name</div>
         <Products ></Products>
             </div>} >
@@ -31,8 +31,8 @@ class Home extends React.Component {
 
               
       </Route>
-      <Route path="bag" element={  <Bag></Bag>} />
-      <Route path="product" element={<Productdescription />} />
+      <Route path="bag" element={ <div style={this.props.ispopupCartopened ? {minHeight:"100vh", opacity: "0.88", backgroundColor: "rgba(0, 0, 0, 0.2)" } : {}}><Bag ></Bag></div> } />
+      <Route path="product" element={<div style={this.props.ispopupCartopened ? {minHeight:"100vh", opacity: "0.88", backgroundColor: "rgba(0, 0, 0, 0.2)" } : {}}><Productdescription /></div>} />
     </Routes>
   </BrowserRouter>
         </div>  

@@ -63,7 +63,8 @@ class Bag extends React.Component {
                 <>
                  
                   <img src={product.gallery[this.props.products[index].imgindex]} alt="" />
-                  <button className='imgleftslider' onClick={() => { 
+                  {product.gallery.length > 1 && <>
+                   <button className='imgleftslider' onClick={() => { 
                     if (this.props.products[index].imgindex === 0) {
            
                       this.props.changeimgindex({value: product.gallery.length -1,productindex:index});
@@ -86,7 +87,8 @@ class Bag extends React.Component {
                     }
 
                   }}><img src={rightarrow } alt="" /></button>
-             
+                 </>
+                }
                 </>
               
               

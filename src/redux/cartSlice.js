@@ -43,9 +43,28 @@ opened:false,
     }
     ,
     addProductToCart: (state, action) => {
-      var index = state.products.findIndex(product => product.id === action.payload.id);
- 
-      state.totalcountProducts++;
+         state.totalcountProducts++;
+      var index = -1;
+
+          for (var productindex = 0; productindex < state.products.length; productindex++){
+            if (index !== -1) break;
+        if (state.products[productindex].id === action.payload.id) {
+        
+          for (var attindex = 0; attindex < state.products[productindex].attributes.length; attindex++)
+          {
+            if (state.products[productindex].attributes[attindex].indexSelectedAttribute !== action.payload.attributes[attindex].indexSelectedAttribute) {
+          
+              break;//break if att didnt match
+            }
+            if ((state.products[productindex].attributes.length === attindex + 1)) {
+              index = productindex;
+              break;
+            }
+           
+            }
+        }
+      }
+   
 
       if (index === -1) {//if index = -1 it means that it is the first time for the product to be added
         

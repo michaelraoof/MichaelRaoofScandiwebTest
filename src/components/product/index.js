@@ -128,7 +128,8 @@ class Productdescription extends React.Component {
                 })}
               <h2>PRICE:</h2>
     <h2>{ this.props.data.product.prices[this.props.currencyIndexArray].currency.symbol+this.props.data.product.prices[this.props.currencyIndexArray].amount}</h2>
-              <button onClick={() => {
+              <button
+                onClick={() => {
                 
                this.props.addProductToCart({
                    id: this.props.data.product.id,
