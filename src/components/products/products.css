@@ -1,70 +1,68 @@
 .grid-container {
-    display: grid;
-   
-    align-content: center;
-    grid-template-columns: 33.33% 33.33% 33.33%;
-    gap: 20px;
-font-size: 80%;
-  padding-left: 10vw;
-    padding-right: 10vw;
+  display: grid;
 
+  align-content: center;
+  grid-template-columns: 28% 28% 28%;
+  gap: 6%;
+  font-size: 80%;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-top: 7vh;
 }
 
-.grid-container>a {
-color: inherit;
-text-decoration: inherit;
-          cursor:grab;
+.grid-container > a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: grab;
   padding: 17px;
-   display: block;
-   flex-direction: column;
+  display: block;
+  flex-direction: column;
 
   align-items: center;
-  padding-bottom: 25px;
-text-align: inherit;
-width: 75%;
 
+  padding-bottom: 25px;
+  text-align: inherit;
+  width: 75%;
 }
 .grid-container .productImg {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
 
-width: 100%;
-height: 37vh;
+  height: 45vh;
 
+  object-fit: contain;
 }
-.grid-container>a:hover {
-    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
-  
+.grid-container > a:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 .txt {
-    align-self:  flex-start;
   word-wrap: break-word;
   padding-top: 10px;
   flex: 1;
-
+  padding-left: 5%;
 }
-.grid-container>a>div {
-  position: relative;
 
+.grid-container > a > div {
+  position: relative;
 }
 .cartimg {
   border-radius: 50%;
   display: none;
   height: 5.5vh;
-z-index: 1;
-position: absolute;
-left: 75%;
-top:34vh;
-cursor:pointer;
-    
-
+  z-index: 1;
+  position: absolute;
+  left: 70%;
+  top: 42vh;
+  cursor: pointer;
 }
-.grid-container>a:hover .cartimg{
-
+.grid-container > a:hover .cartimg {
   display: block;
 }
 .outStock {
-
   position: absolute;
-  bottom:calc(17vh - 45px);
-  left: calc(30% - 20px);
+  font-size: large;
+  bottom: calc(17vh - 60px);
+  left: calc(20% - 30px);
   word-wrap: break-word;
 }

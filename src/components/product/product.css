@@ -1,45 +1,49 @@
-.mainproductdescription{
+.mainproductdescription {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 4em auto auto;
 
-    display: grid;
-        align-content: center;
-            grid-template-columns: 4em auto auto;
-          
-            font-size: 80%;
-            padding-top: 40px;
-            padding-left: 10.5vw;
-            padding-right: 10vw;
-           
-     gap: 10px;
+  font-size: 80%;
+  padding-top: 40px;
+  padding-left: 10.5vw;
+  padding-right: 10vw;
+
+  gap: 10px;
 }
-.productsmallimgs{
+.productsmallimgs {
   padding: 0px;
   margin: 0px;
   max-width: 5vw;
 }
-.productsmallimgs>img{
-
- cursor: pointer;
+.productsmallimgs > img {
+  cursor: pointer;
   margin: 0px;
   padding-bottom: 10px;
- padding: 0px;
- margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
-.productbigimg>img{
-  
-margin: 0px;
+.productbigimg > img {
+  margin: 0px;
   padding: 0px;
 
- width: 40em;
-  height: 40em;
+  width: 27em;
+  height: 27em;
   max-width: 35vw;
-max-height: 70vh;
+  max-height: 70vh;
+  object-fit: contain;
 }
-.productdescription>button{
+.productdescription > button {
   color: white;
-  background-color: #5ECE7B;
+  background-color: #5ece7b;
   padding: 0px 29px;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin-bottom: 40px;
+  margin-right: 40px;
   border: none;
   cursor: pointer;
+}
+.atts > .attribute {
+  margin: 4px;
+  letter-spacing: 0.5px;
+  padding: 5px 20px;
+  margin-left: 0px;
 }

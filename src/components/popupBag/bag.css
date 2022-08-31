@@ -1,161 +1,155 @@
-
 .bag p {
-margin: 0;
-    padding: 0;
- 
+  margin: 0;
+  padding: 0;
 }
 
 .bag {
-    position: absolute;
-   display: none;
+  position: absolute;
+  display: none;
 
-    right: 0em;
-    margin-right: 10vw;
-top: 1.4em;
-    z-index: 2;
-    background-color:white;
-    padding: 10px;
-        max-height: 70vh;
-        max-width: 40vw;
-        overflow: auto;
-        font-size: 115%;
+  right: 0em;
+  margin-right: 10vw;
+  top: 1.4em;
+  z-index: 2;
+  background-color: white;
+  padding: 20px;
+  padding-right: 10px;
+  max-height: 70vh;
+  max-width: 30vw;
+  overflow: auto;
+  font-size: 115%;
 }
 
 .bagheader {
-   grid-column: span 2;
-   margin-bottom: 20px;
+  grid-column: span 2;
+  margin-bottom: 20px;
 }
-
-
 
 .bagcheckout {
-margin-top: 15px;
-grid-column: span 2;
+  margin-top: 15px;
+  grid-column: span 2;
 }
 .popupbtncart {
+  font-size: 26px;
+  border: none;
+  outline: none;
 
-    font-size: 26px;
-    border: none;
-    outline: none;
-
-cursor: pointer;
-    background-color: inherit;
-
-
+  cursor: pointer;
+  background-color: inherit;
 }
-.attribute ,.negativebtn, .plusbtn {
-
-    outline: none;
-
-margin: 2px;
-    background-color: inherit;
-padding-bottom: 0px;
-
+.attribute,
+.negativebtn,
+.plusbtn {
+  outline: none;
+  font-size: 0.8em;
+  border: solid 1px;
+  margin: 1px;
+  height: 2em;
+  font-weight: 100;
+  background-color: inherit;
 }
-.cart:hover .bag{
-display: grid;
+.cart:hover .bag {
+  display: grid;
 }
- .leftcontent , .rightcontent {
-    padding-bottom: 20px;
-font-size: 80%;
-position: relative;
-
- }
+.leftcontent,
+.rightcontent {
+  padding-bottom: 60px;
+  font-size: 80%;
+  position: relative;
+}
 .leftcontent p {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
-.rightcontent >img {
-    width: 90%;
-    height: 12em;
-margin-left: 1.2em;
+.rightcontent > img {
+  height: 10em;
+  margin-left: 1.2em;
+  padding: 0px;
+  object-fit: contain;
+  width: 7em;
+  padding-right: 0px;
 }
 .plusbtn {
-    position: absolute;
-    top:0px;
-    left:0px;
-    width: 1em;
-    height: 1em;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 1.5em;
+  height: 1.5em;
 
-
-    line-height: 0px;
-    padding: 0px;
-        margin: 0px;
-
-  
+  line-height: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .negativebtn {
+  width: 1.5em;
+  height: 1.5em;
 
-    width: 1em;
-    height: 1em;
-
-    
- 
-        padding: 0px;
-        margin: 0px;
-        margin-right: 3px;
-position: absolute;
-bottom: 25px;
-left: 0px;
+  padding: 0px;
+  margin: 0px;
+  margin-right: 3px;
+  position: absolute;
+  top: 11em;
+  left: 0px;
 }
 
 .checkoutbtn {
-background-color: #5ECE7B;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-   margin: 3px;
-margin-right: 0px;
-    cursor: pointer;
+  background-color: #5ece7b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 3px;
+  margin-right: 0px;
+  cursor: pointer;
 
-    border: none;
+  border: none;
+  font-size: 0.6em;
 }
 
 .viewbtn {
-    cursor: pointer;
-background-color: white;
-    color: black;
-    outline: none;
-    margin: 3px;
-    padding: 15px 32px;
-   margin-left: 0px;
-    border: 1px solid black;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  outline: none;
+  margin: 3px;
+  padding: 15px 32px;
+  margin-left: 0px;
+  border: 1px solid black;
+  font-size: 0.6em;
+  display: inline-block;
 }
-.countbtn{
-    position: absolute;
-    top:50%;
-    bottom: 50%;
-    left: -2px;
-    width: 1em;
-        height: 1em;
-        margin:0px;
-        padding: 0px;
+.countbtn {
+  position: absolute;
+  top: 4.5em;
 
-        line-height: 0px;
-        background: none;
-        border: none;
-        cursor:default;
-    
+  left: -2px;
+  width: 1em;
+  height: 1em;
+  margin: 0px;
+  padding: 0px;
+
+  line-height: 0px;
+  background: none;
+  border: none;
+  cursor: default;
 }
 .numproducts {
-    background-color: black;
-    color: white;
-    border-radius: 50%;
-    width: 1.4em;
-        height: 1.4em;
-        line-height: 0px;
-        margin: 0px;
-            padding: 0px;
-      position: absolute;
-      right: 9.5vw;
-      font-size: 60%;
-
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 0px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  right: 9.5vw;
+  font-size: 60%;
 }
 .plusbtn:active,
 .negativebtn:active {
-    color: white;
-    background-color: black;
+  color: white;
+  background-color: black;
 }
