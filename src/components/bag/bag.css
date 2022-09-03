@@ -19,6 +19,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
+
   width: 2em;
   height: 2em;
 
@@ -43,15 +44,15 @@
   margin: 0px;
   margin-right: 3px;
   position: absolute;
-  bottom: 5px;
+  top: 9.5em;
   left: 0px;
   border: 1px solid;
   cursor: pointer;
 }
 .countbtncart {
   position: absolute;
-  top: 50%;
-  bottom: 50%;
+  top: 5.5em;
+
   left: 10px;
   width: 1em;
   height: 1em;
@@ -63,16 +64,17 @@
   cursor: default;
 }
 .rightcart > img {
-  width: 14vw;
+  width: 9.5vw;
+
   height: 12.5em;
-  margin-left: 50px;
+  margin-left: 60px;
 }
 .imgrightslider {
   background-color: black;
   color: white;
   position: absolute;
-  bottom: 20px;
-  right: 10px;
+  top: 10.4em;
+  right: calc(10px + 5%);
   border: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -82,8 +84,9 @@
   position: absolute;
   background-color: black;
   color: white;
-  bottom: 20px;
-  right: 33px;
+  top: 10.4em;
+  right: calc(33px + 5%);
+
   border: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -115,7 +118,23 @@
   border: solid 1px;
   margin: 1px;
   height: 3em;
-  min-width: 3.5em;
+  min-width: 4.2em;
   font-weight: 100;
   background-color: inherit;
+}
+.colordiv {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 2.5px;
+  padding: 0.07em;
+}
+.colorbtn {
+  width: 1.4em;
+  height: 1.4em;
+  border: none;
+}
+.productdetailsbag {
+  margin-bottom: 3px;
+  margin-top: 0px;
+  padding-top: 0px;
 }

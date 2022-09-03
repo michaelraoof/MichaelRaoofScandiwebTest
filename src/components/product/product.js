@@ -64,8 +64,8 @@ class Productdescription extends React.Component {
                               key={itemindex}
                               style={{
                                 border: attributeindices[attindex] === itemindex ? "1px solid #5ECE7B" : "none",
-                                width: "35px",
-                                height: "35px",
+                                width: "33px",
+                                height: "33px",
                                 margin: "3px",
                                 marginLeft: "0px",
                               }}
@@ -75,7 +75,7 @@ class Productdescription extends React.Component {
                                   setattributeindices({ value: itemindex, index: attindex });
                                 }}
                                 className="attribute"
-                                style={{ background: item.value, width: "31.5px", height: "31.5px", border: "none" }}
+                                style={{ background: item.value, width: "31.5px", height: "31.5px", border: "none", minWidth: "unset" }}
                               ></button>
                             </div>
                           );

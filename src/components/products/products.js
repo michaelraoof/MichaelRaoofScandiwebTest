@@ -30,7 +30,7 @@ class Products extends React.Component {
 
                     {product.inStock && (
                       <button
-                        style={{ background: "none", border: "none" }}
+                        style={{ background: "none", border: "none", padding: "0px", margin: "0px" }}
                         onClick={(e) => {
                           e.preventDefault();
                           // e.preventDefault(); //to stop the whole Link to={}
