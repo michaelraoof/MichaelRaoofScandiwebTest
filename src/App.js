@@ -7,7 +7,7 @@ import store from "./redux/store.js";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "http://localhost:4000/",
+  uri: "https://apolloendpoint.herokuapp.com/",
 });
 class App extends React.Component {
   render() {
